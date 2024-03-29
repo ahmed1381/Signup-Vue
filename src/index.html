@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup</title>
+    <link href="/dist/output.css" rel="stylesheet">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body id="app" class="bg-gray-700">
+
+<div>
+    <h1 class="text-3xl py-8 font-black text-center text-white">Hi : {{ name }}</h1>
+    <h2 class="text-3xl py-8 font-black text-center text-white">Your Email : {{ Email }}</h2>
+</div>
+
+<div class="border-2 w-[30rem] m-auto mt-18 bg-white rounded-xl p-8 text-center">
+
+    <div>
+        <p class="text-3xl py-8 font-black">Signup</p>
+    </div>
+
+    <!--  Name Input  -->
+    <div class="mb-8">
+        <div class="mb-2">
+            <label class="text-xl font-semibold" for="Name">Name</label>
+        </div>
+        <div>
+            <input @keyup="checkName" v-model="name" id="Name" class="ps-4 py-2 border-2 border-cyan-600 rounded-md"
+                   type="text" placeholder="Name">
+        </div>
+        <div v-if="nameError" class="error-message text-red-500 flex w-auto ms-16">
+            <div v-html="errorSvg"></div>
+            <span>User name can't be less than 5 chars</span>
+        </div>
+    </div>
+    <!--  End Name Input  -->
+
+    <!--  Email Input  -->
+    <div class="mb-8">
+        <div class="mb-2">
+            <label class="text-xl font-semibold" for="Email">Email</label>
+        </div>
+        <div>
+            <input @keyup="checkEmail" v-model="Email" id="Email" class="ps-4 py-2 border-2 border-cyan-600 rounded-md"
+                   type="text"
+                   placeholder="Email">
+        </div>
+        <div v-if="EmailError" class="error-message text-red-500 flex w-auto ms-16">
+            <div v-html="errorSvg"></div>
+            <span>Please enter a valid email</span>
+        </div>
+    </div>
+    <!--  End Email Input  -->
+
+    <!--  Pass Input  -->
+    <div class="mb-8">
+        <div class="mb-2">
+            <label class="text-xl font-semibold" for="Password">Password</label>
+        </div>
+        <div>
+            <input @keyup="checkPass" v-model="password" id="Password"
+                   class="ps-4 py-2 border-2 border-cyan-600 rounded-md" type="password"
+                   placeholder="Password">
+        </div>
+        <div v-if="PassError" class="error-message text-red-500 flex w-auto ms-16">
+            <div v-html="errorSvg"></div>
+            <span>Password name can't be less than 8 chars</span>
+        </div>
+    </div>
+    <!--  End Pass Input  -->
+
+    <!--  Confirm Pass Input  -->
+    <div class="mb-8">
+        <div class="mb-2">
+            <label class="text-xl font-semibold" for="confirm-password">confirm Password</label>
+        </div>
+        <div>
+            <input @keyup="checkConfirmPass" v-model="confirmPassword" id="confirm-password"
+                   class="ps-4 py-2 border-2 border-cyan-600 rounded-md" type="password" placeholder="Confirm Password">
+        </div>
+        <div v-if="confirmPassError" class="error-message text-red-500 flex w-auto ms-16">
+            <div v-html="errorSvg"></div>
+            <span>Passwords do not match</span>
+        </div>
+    </div>
+    <!--  End Confirm Pass Input  -->
+    
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
